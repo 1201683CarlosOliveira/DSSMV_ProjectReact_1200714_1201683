@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+/*import React, {Component, useEffect, useState} from 'react';
 import api from '../service/config';
-
 
 import {
   SafeAreaView,
@@ -13,13 +12,15 @@ import {
   View,
   Image,
   TouchableOpacity,
+  StyleSheet,
+  Modal,
+  TextInput,
 } from 'react-native';
 
 
 class BooksList extends Component {
-  state = {
-    home: [],
-  };
+  
+  state = { home: [],};
 
   async componentDidMount() {
     const response = await api
@@ -27,7 +28,7 @@ class BooksList extends Component {
       .catch(error => Alert.alert(error.message));
     this.setState({ home: response.data, });
   }
-  
+
   render() {
     return (
       <SafeAreaView >
@@ -41,31 +42,32 @@ class BooksList extends Component {
 }
 
 
-  const bookShow = function (item) {
-  const {isbn, stock, available, book} = item.item;
-  
-  return (
+const bookShow = function (item) {
     
-    <View style= {{
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: '#C9C8C9',
-    }}>
-      <TouchableOpacity >
-      <Image
-        style={styles.photo}
-        source={{
-          uri: 'http://193.136.62.24/v1/assets/cover/' + isbn + '-M.jpg',
+    const {isbn, stock, available, book} = item.item;
+
+    return (
+    
+        <View style= {{
+         flex: 1,
+         flexDirection: 'row',
+         backgroundColor: '#C9C8C9',
+        }}>
+       
+        <Image
+         style={styles.photo}
+            source={{
+            uri: 'http://193.136.62.24/v1/assets/cover/' + isbn + '-M.jpg',
         }}/>
-      <View style={styles.container}>
+
+        <View style={styles.container}>
           <Text style={styles.letrasLivros}>Isbn: {isbn}</Text>
           <Text style={styles.letrasLivros}>Stock: {stock}</Text>
           <Text style={styles.letrasLivros}>Available: {available}</Text>
           <Text style={styles.letrasLivros}>Titulo: {book.title}</Text>
           <Text style={styles.letrasLivros}>Autor: {book.authors[0].name}</Text> 
-      </View>
-      </TouchableOpacity> 
-    </View>
+        </View>
+        </View>
   );
 }
 
@@ -89,6 +91,4 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
-});
-
-  
+});*/

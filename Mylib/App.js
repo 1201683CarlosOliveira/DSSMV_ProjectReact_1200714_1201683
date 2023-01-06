@@ -2,8 +2,8 @@ import React from 'react';
 import { Node } from 'react';
 import HomeScreen from './screens/HomeScreen';
 import Books from './screens/Books';
-import AddReview from './screens/AddReview';
-import SearchBook from './screens/SearchBook.js';
+//import AddReview from './screens/AddReview';
+import SearchBook from './screens/SearchBook';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -19,7 +19,7 @@ function App() {
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title:"Welcome"}} />
       <Stack.Screen name="Books" component={Books} />
       <Stack.Screen name="SearchBook" component={SearchBook} />
-      <Stack.Screen name="AddReview" component={AddReview} />
+
     </Stack.Navigator>
    </NavigationContainer>
   );

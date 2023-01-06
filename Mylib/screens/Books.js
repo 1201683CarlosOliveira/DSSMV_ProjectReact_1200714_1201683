@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import BooksList from '../components/BooksList.js';
 
-const Books = () => {
+const Books = (navigation) => {
   return (
     <View style={styles.container}>
       <BooksList />
