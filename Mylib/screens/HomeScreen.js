@@ -32,6 +32,7 @@ function HomeScreen ({navigation}) {
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}} >
         <LibraryImg width= {200} height={300}/>
         </View>
+
       <TouchableOpacity 
        style={{backgroundColor: '#DB4F31', padding: 20, width: 300, borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 50}}
        onPress={() => navigation.navigate('Books')} >
@@ -41,6 +42,17 @@ function HomeScreen ({navigation}) {
           color: '#fff'
         }}>List Books</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity 
+       style={{backgroundColor: '#DB4F31', padding: 20, width: 300, borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 50}}
+       onPress={() => navigation.navigate('SearchBook')} >
+      <Text style={{
+          fontSize: 18,
+          fontWeight: 'bold',
+          color: '#fff'
+        }}>Search Books</Text>
+      </TouchableOpacity>
+
       <Text></Text>
     </SafeAreaView>
   );
