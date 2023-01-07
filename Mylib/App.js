@@ -7,6 +7,7 @@ import SearchBook from './screens/SearchBook';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Test from './screens/Test';
 
 
 
@@ -19,7 +20,7 @@ function App() {
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title:"Welcome"}} />
       <Stack.Screen name="Books" component={Books} />
       <Stack.Screen name="SearchBook" component={SearchBook} />
-
+      <Stack.Screen name="Test" component={Test} />
     </Stack.Navigator>
    </NavigationContainer>
   );

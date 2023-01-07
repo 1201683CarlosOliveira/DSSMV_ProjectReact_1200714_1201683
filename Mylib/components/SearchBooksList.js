@@ -1,24 +1,22 @@
-/*import React, {Component, useEffect, useState} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import api from '../service/config';
 
 import {
   SafeAreaView,
   Text,
   StyleSheet,
-  Button,
-  TextInput,
+ 
   Alert,
   FlatList,
   View,
   Image,
   TouchableOpacity,
-  StyleSheet,
-  Modal,
+ 
   TextInput,
 } from 'react-native';
 
 
-class BooksList extends Component {
+class SearchBooksList extends Component {
   
   state = { home: [],};
 
@@ -35,7 +33,12 @@ class BooksList extends Component {
         <FlatList 
            data={this.state.home}
            keyExtractor={item => item.isbn}
-           renderItem={bookShow}/>
+           renderItem={({bookShow}) => (
+            <View >
+              <Text>{bookShow.isbn}</Text>
+            </View>
+        )}
+    />
       </SafeAreaView>
     );
   }
@@ -71,7 +74,7 @@ const bookShow = function (item) {
   );
 }
 
-export default BooksList;
+export default SearchBooksList;
 
 
 const styles = StyleSheet.create({
@@ -91,4 +94,4 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
-});*/
+});

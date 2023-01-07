@@ -45,7 +45,7 @@ function HomeScreen ({navigation}) {
 
       <TouchableOpacity 
        style={{backgroundColor: '#DB4F31', padding: 20, width: 300, borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 50}}
-       onPress={() => navigation.navigate('SearchBook')} >
+       onPress={() => navigation.navigate('Test')} >
       <Text style={{
           fontSize: 18,
           fontWeight: 'bold',

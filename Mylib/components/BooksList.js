@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import api from '../service/config';
-
+import Test from '../screens/Test';
 
 import {
   SafeAreaView,
@@ -51,7 +51,7 @@ class BooksList extends Component {
       flexDirection: 'row',
       backgroundColor: '#C9C8C9',
     }}>
-      <TouchableOpacity >
+      <TouchableOpacity>
       <Image
         style={styles.photo}
         source={{
