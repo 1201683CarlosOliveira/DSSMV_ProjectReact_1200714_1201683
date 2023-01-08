@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   SafeAreaView,
   Text,
-  Button,
+  TouchableOpacity, 
   TextInput,
   StyleSheet,
   Alert,
@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import config from '../service/config';
 
-class Test extends React.Component {
+class ReviewAdd extends React.Component {
   state = {
     isbn: 'isbn',
     review: '',
@@ -42,7 +42,7 @@ class Test extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.letras}>Isbn:</Text>
+        <Text style={styles.letters}>Isbn:</Text>
         <TextInput
           style={styles.input}
           placeholder="Isbn"
@@ -50,34 +50,35 @@ class Test extends React.Component {
           onChangeText={this.handleIsbn}
           keyboardType="numeric"
         />
-        <Text style={styles.letras}>Review:</Text>
+        <Text style={styles.letters}>Review:</Text>
         <TextInput
           style={styles.input}
           placeholder="Review"
           placeholderTextColor="black"
           onChangeText={this.handleReview}
         />
-        <Text style={styles.letras}>User:</Text>
+        <Text style={styles.letters}>User:</Text>
         <TextInput
           style={styles.input}
           placeholder="User"
           placeholderTextColor="black"
           onChangeText={this.handleUser}
         />
-        <Text style={styles.letras}>
-          {this.state.checkBox ? 'Recomendado' : 'Não Recomendado'}
+        <Text style={styles.letters}>
+          {this.state.checkBox ? 'Recommended' : 'Not Recommended'}
         </Text>
         <Switch
-          style={styles.swicth}
+          style={styles.switch}
           value={this.state.checkBox}
           onValueChange={checkBox => this.setState({checkBox})}
         />
 
-        <Button
-          style={styles.submitButton}
-          title={'Enviar'}
-          onPress={this.handleClick}
-        />
+        <TouchableOpacity 
+            style={styles.submitButton}
+            onPress={this.handleClick}>
+            <Text style={styles.submitButtonText}>Send</Text>
+        </TouchableOpacity>
+       
       </SafeAreaView>
     );
   }
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 23,
   },
+
   input: {
     margin: 15,
     height: 40,
@@ -93,25 +95,33 @@ const styles = StyleSheet.create({
     color: 'black',
     borderWidth: 1,
   },
+
   submitButton: {
-    backgroundColor: '#7a42f4',
+    backgroundColor: '#DB4F31', 
+    borderRadius: 10,
     padding: 10,
     margin: 15,
-    height: 40,
+    height: 45, 
+    borderRadius: 5,
   },
+
   submitButtonText: {
     color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 20,
   },
-  letras: {
+
+  letters: {
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  swicth: {
+  switch: {
     alignSelf: 'center',
     justifyContent: 'center',
   },
 });
 
-export default Test;
+export default ReviewAdd;
