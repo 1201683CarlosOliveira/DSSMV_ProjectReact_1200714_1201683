@@ -5,6 +5,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  StyleSheet,
  } from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -14,48 +15,68 @@ const Stack = createNativeStackNavigator();
 
 function HomeScreen ({navigation}) {
   return (
-    <SafeAreaView 
-    style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#fff',
-    }}>
+    <SafeAreaView style={styles.container}>
+
       <View style ={{marginTop: 20}}>
-        <Text 
-        style={{
-          fontSize: 30,
-          fontWeight: 'bold',
-          color: '#807573 '
-        }}>MyLib</Text>
-        </View> 
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}} >
+        <Text style={styles.title}>MyLib</Text>
+      </View> 
+
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}} >
         <LibraryImg width= {200} height={300}/>
-        </View>
+      </View>
 
       <TouchableOpacity 
-       style={{backgroundColor: '#DB4F31', padding: 20, width: 300, borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 50}}
-       onPress={() => navigation.navigate('Books')} >
-      <Text style={{
-          fontSize: 18,
-          fontWeight: 'bold',
-          color: '#fff'
-        }}>List Books</Text>
+        style={styles.button}
+        onPress={() => navigation.navigate('AddBook')} >
+        <Text style={styles.buttonText}>Create a Book</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity     
+        style={styles.button}        
+        onPress={() => navigation.navigate('Books')} >
+        <Text style={styles.buttonText}>List Books</Text>
       </TouchableOpacity>
 
       <TouchableOpacity 
-       style={{backgroundColor: '#DB4F31', padding: 20, width: 300, borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 50}}
-       onPress={() => navigation.navigate('Test')} >
-      <Text style={{
-          fontSize: 18,
-          fontWeight: 'bold',
-          color: '#fff'
-        }}>Search Books</Text>
+        style={styles.button}       
+        onPress={() => navigation.navigate('AddReview')} >
+        <Text style={styles.buttonText}>Create a Review</Text>
       </TouchableOpacity>
 
-      <Text></Text>
     </SafeAreaView>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+
+  title: {
+    fontSize: 30,
+    ontWeight: 'bold',
+    color: '#807573',
+  },
+
+  button: { 
+    backgroundColor: '#DB4F31', 
+    padding: 10, 
+    width: 300, 
+    borderRadius: 5, 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    marginBottom: 45,
+  },
+
+  buttonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+});
+
 export default HomeScreen;
+
