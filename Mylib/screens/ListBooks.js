@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import BooksList from '../components/BooksList.js';
 
-const Books = (navigation) => {
+const ListBooks = (navigation) => {
   return (
     <View>
       <BooksList />
@@ -10,4 +10,5 @@ const Books = (navigation) => {
   );
 }
 
-export default Books;
+export default ListBooks;
+

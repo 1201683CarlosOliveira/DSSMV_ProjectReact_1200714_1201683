@@ -26,9 +26,9 @@ class BookAdd extends React.Component {
             {stock: this.state.stock},)
       
         .catch(error => Alert.alert(error.message));
-        //this.props.navigation.push('HomeScreenC');
-        const { navigation } = this.props;
+        
         Alert.alert('Created With Success!');
+        this.props.navigation.push('HomeScreenC');
     };
 
     handleIsbn = text => {

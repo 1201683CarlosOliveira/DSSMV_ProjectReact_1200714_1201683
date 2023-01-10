@@ -5,13 +5,10 @@ import {
   SafeAreaView,
   Text,
   StyleSheet,
-  Button,
-  TextInput,
   Alert,
   FlatList,
   View,
   Image,
-  TouchableOpacity,
 } from 'react-native';
 
 
@@ -45,23 +42,20 @@ class BooksList extends Component {
   
   return (
     
-    <View style= {{
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: '#C9C8C9',
-    }}>
+    <View style= {styles.container}>
       
       <Image
-        style={styles.photo}
+        style={styles.image}
         source={{
           uri: 'http://193.136.62.24/v1/assets/cover/' + isbn + '-M.jpg',
         }}/>
-      <View style={styles.container}>
-          <Text style={styles.letrasLivros}>Isbn: {isbn}</Text>
-          <Text style={styles.letrasLivros}>Stock: {stock}</Text>
-          <Text style={styles.letrasLivros}>Available: {available}</Text>
-          <Text style={styles.letrasLivros}>Titulo: {book.title}</Text>
-          <Text style={styles.letrasLivros}>Autor: {book.authors[0].name}</Text> 
+        
+      <View style={styles.containerInf}>
+          <Text style={styles.letters}>Isbn: {isbn}</Text>
+          <Text style={styles.letters}>Stock: {stock}</Text>
+          <Text style={styles.letters}>Available: {available}</Text>
+          <Text style={styles.letters}>Titulo: {book.title}</Text>
+          <Text style={styles.letters}>Autor: {book.authors[0].name}</Text> 
       </View>
 
     </View>
@@ -72,21 +66,25 @@ export default BooksList;
 
 
 const styles = StyleSheet.create({
-  photo: {
+
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#C9C8C9',
+  },
+  containerInf: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  image: {
     borderRadius: 4,
     width: 80,
     height: 120,
-   
   },
-  letrasLivros: {
+  letters: {
     color: 'black',
     fontSize: 15,
-    fontWeight: 'bold',
-    
-  },
-  container: {
-    flex: 1,
-    flexDirection: 'column',
+    fontWeight: 'bold', 
   },
 });
 

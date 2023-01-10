@@ -27,7 +27,7 @@ class ReviewAdd extends React.Component {
       .catch(error => Alert.alert(error.message));
     console.log(this.state);
     //this.props.navigation.goBack();
-    Alert.alert('Criado com sucesso');
+    Alert.alert('Review Created with Success!!');
   };
 
   handleIsbn = text => {

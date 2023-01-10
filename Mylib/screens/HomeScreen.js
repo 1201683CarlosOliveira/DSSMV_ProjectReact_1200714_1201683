@@ -33,8 +33,8 @@ function HomeScreen ({navigation}) {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Books')} >
-        <Text style={styles.buttonText}>List Books</Text>
+        onPress={() => navigation.navigate('ListBooks')} >
+        <Text style={styles.buttonText}>List ListBooks</Text>
       </TouchableOpacity>
 
       <TouchableOpacity

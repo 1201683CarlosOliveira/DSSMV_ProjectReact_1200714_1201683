@@ -3,7 +3,7 @@ import { Node } from 'react';
 
 import HomeScreen from './screens/HomeScreen';
 import AddBook from './screens/AddBook';
-import Books from './screens/Books';
+import ListBooks from './screens/ListBooks';
 import AddReview from './screens/AddReview';
 import Reviews from "./screens/Reviews";
 
@@ -21,7 +21,7 @@ function App() {
     <Stack.Navigator initialRouteName='HomeScreen'>
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title:"Welcome"}} />
       <Stack.Screen name="AddBook" component={AddBook} options={{title:"Create a Book"}}/>
-      <Stack.Screen name="Books" component={Books} options={{title:"List Books"}}/>
+      <Stack.Screen name="ListBooks" component={ListBooks} options={{title:"List Books"}}/>
       <Stack.Screen name="AddReview" component={AddReview} options={{title:"Create a Review"}} />
       <Stack.Screen name="Reviews" component={Reviews} options={{title:"List Reviews"}} />
     </Stack.Navigator>

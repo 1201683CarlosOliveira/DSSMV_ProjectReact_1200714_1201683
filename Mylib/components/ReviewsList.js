@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Alert,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import config from '../service/config';
 
@@ -25,13 +26,14 @@ class ReviewList extends React.Component {
       recommended: response.data.recommended,
       review: response.data.review,
     });
+    /*
     Alert.alert(
       'Recomendado: ' +
         this.state.recommended +
         '\r\n' +
         'Review: ' +
         this.state.review,
-    );
+    );*/
   };
 
   handleIsbn = text => {
@@ -41,7 +43,7 @@ class ReviewList extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.letras}>Isbn:</Text>
+        <Text style={styles.letters}>Isbn:</Text>
         <TextInput
           style={styles.input}
           placeholder="Isbn"
@@ -49,11 +51,16 @@ class ReviewList extends React.Component {
           onChangeText={this.handleIsbn}
           keyboardType="numeric"
         />
-        <Button
-          style={styles.submitButton}
-          title={'Enviar'}
-          onPress={this.handleClick}
-        />
+        <TouchableOpacity 
+            style={styles.submitButton}
+            onPress={this.handleClick}>
+            <Text style={styles.submitButtonText}>Send</Text>
+        </TouchableOpacity>
+
+        <View style={styles.show}>
+          <Text style={styles.letters} >Recomendado: {this.state.recommended.toString()}</Text>
+          <Text style={styles.letters}>Review: {this.state.review}</Text>
+        </View>
       </SafeAreaView>
     );
   }
@@ -70,23 +77,27 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   submitButton: {
-    backgroundColor: '#7a42f4',
-    padding: 10,
+    backgroundColor: '#DB4F31', 
+    borderRadius: 10,
+    padding: 9,
     margin: 15,
-    height: 40,
+    height: 45, 
+    borderRadius: 5,
   },
   submitButtonText: {
     color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 20,
   },
-  letras: {
+  letters: {
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  swicth: {
-    alignSelf: 'center',
-    justifyContent: 'center',
+  show: {
+    marginTop: 100,
   },
 });
 
