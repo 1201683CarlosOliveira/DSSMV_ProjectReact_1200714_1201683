@@ -5,8 +5,8 @@ import HomeScreen from './screens/HomeScreen';
 import AddBook from './screens/AddBook';
 import ListBooks from './screens/ListBooks';
 import AddReview from './screens/AddReview';
-import Reviews from "./screens/Reviews";
-import ChangeMyReview from "./screens/ChangeMyReview";
+import ListReviews from "./screens/ListReviews";
+import ChangeReview from "./screens/ChangeReview";
 
 
 
@@ -22,10 +22,10 @@ function App() {
     <Stack.Navigator initialRouteName='HomeScreen'>
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title:"Welcome"}} />
       <Stack.Screen name="AddBook" component={AddBook} options={{title:"Create a Book"}}/>
-      <Stack.Screen name="ListBooks" component={ListBooks} options={{title:"List Books"}}/>
+      <Stack.Screen name="ListBooks" component={ListBooks} options={{title:"List of Books"}}/>
       <Stack.Screen name="AddReview" component={AddReview} options={{title:"Create a Review"}} />
-      <Stack.Screen name="Reviews" component={Reviews} options={{title:"List Reviews"}} />
-      <Stack.Screen name="ChangeMyReview" component={ChangeMyReview} options={{title:"Change My Review"}} />
+      <Stack.Screen name="ListReviews" component={ListReviews} options={{title:"List Review of a Book"}} />
+      <Stack.Screen name="ChangeReview" component={ChangeReview} options={{title:"Change My Review of a Book"}} />
     </Stack.Navigator>
    </NavigationContainer>
   );
