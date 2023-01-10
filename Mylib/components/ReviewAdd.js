@@ -12,21 +12,21 @@ import config from '../service/config';
 
 class ReviewAdd extends React.Component {
   state = {
-    isbn: 'isbn',
+    isbn: '',
     review: '',
     user: '',
     checkBox: false,
   };
 
   handleClick = async () => {
-    api
+    config
       .post('book/' + this.state.isbn + '/review?userId=' + this.state.user, {
         recommended: this.state.checkBox,
         review: this.state.review,
       })
       .catch(error => Alert.alert(error.message));
     console.log(this.state);
-    this.props.navigation.goBack();
+    //this.props.navigation.goBack();
     Alert.alert('Criado com sucesso');
   };
 

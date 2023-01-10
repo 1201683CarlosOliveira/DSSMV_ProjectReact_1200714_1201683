@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import api from '../service/config';
+import config from '../service/config';
 
 import {
   SafeAreaView,
@@ -21,8 +21,8 @@ class BooksList extends Component {
   };
 
   async componentDidMount() {
-    const response = await api
-      .get('library/89da2535-5474-4368-9fb4-7849df1d38b9/book')
+    const response = await config
+      .get('library/e808292b-10f5-4d2d-83f0-6738f06196e5/book')
       .catch(error => Alert.alert(error.message));
     this.setState({ home: response.data, });
   }
@@ -50,7 +50,7 @@ class BooksList extends Component {
       flexDirection: 'row',
       backgroundColor: '#C9C8C9',
     }}>
-      <TouchableOpacity >
+      
       <Image
         style={styles.photo}
         source={{
@@ -63,7 +63,7 @@ class BooksList extends Component {
           <Text style={styles.letrasLivros}>Titulo: {book.title}</Text>
           <Text style={styles.letrasLivros}>Autor: {book.authors[0].name}</Text> 
       </View>
-      </TouchableOpacity> 
+
     </View>
   );
 }

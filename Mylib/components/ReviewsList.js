@@ -1,89 +1,93 @@
-import React, {Component} from 'react';
-import api from '../service/config';
-
+import * as React from 'react';
 import {
-    SafeAreaView,
-    Text,
-    StyleSheet,
-    Button,
-    TextInput,
-    Alert,
-    FlatList,
-    View,
-    Image,
-    TouchableOpacity,
+  SafeAreaView,
+  Text,
+  Button,
+  TextInput,
+  StyleSheet,
+  Alert,
+  View,
 } from 'react-native';
+import config from '../service/config';
 
+class ReviewList extends React.Component {
+  state = {
+    isbn: '',
+    recommended: false,
+    review: '',
+  };
 
-class ReviewsList extends Component {
-    state = {
-        home: [],
-    };
-
-    async componentDidMount() {
-        const response = await api
-            .get('library/89da2535-5474-4368-9fb4-7849df1d38b9/book')
-            .catch(error => Alert.alert(error.message));
-        this.setState({ home: response.data, });
-    }
-
-    render() {
-        return (
-            <SafeAreaView >
-                <FlatList
-                    data={this.state.home}
-                    keyExtractor={item => item.isbn}
-                    renderItem={reviewShow}/>
-            </SafeAreaView>
-        );
-    }
-}
-
-
-const reviewShow = function (item) {
-    const {isbn, user, review} = item.item;
-
-    return (
-
-        <View style= {{
-            flex: 1,
-            flexDirection: 'row',
-            backgroundColor: '#C9C8C9',
-        }}>
-            <TouchableOpacity >
-                <Image
-                    style={styles.photo}
-                    source={{
-                        uri: 'ALTERARRRRR O IP' + isbn + '-M.jpg',
-                    }}/>
-                <View style={styles.container}>
-                    <Text style={styles.letrasLivros}>User: {user}</Text>
-                    <Text style={styles.letrasLivros}>Review: {review}</Text>
-                    <Text style={styles.letrasLivros}>Isbn: {isbn}</Text>
-                </View>
-            </TouchableOpacity>
-        </View>
+  handleClick = async () => {
+    const response = await config
+      .get('book/' + this.state.isbn + '/review/self?userId=Mariana',)
+      .catch(error => Alert.alert(error.message));
+    this.setState({
+      recommended: response.data.recommended,
+      review: response.data.review,
+    });
+    Alert.alert(
+      'Recomendado: ' +
+        this.state.recommended +
+        '\r\n' +
+        'Review: ' +
+        this.state.review,
     );
+  };
+
+  handleIsbn = text => {
+    this.setState({isbn: text});
+  };
+  
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.letras}>Isbn:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Isbn"
+          placeholderTextColor="black"
+          onChangeText={this.handleIsbn}
+          keyboardType="numeric"
+        />
+        <Button
+          style={styles.submitButton}
+          title={'Enviar'}
+          onPress={this.handleClick}
+        />
+      </SafeAreaView>
+    );
+  }
 }
-
-export default ReviewsList;
-
-
 const styles = StyleSheet.create({
-    photo: {
-        borderRadius: 4,
-        width: 80,
-        height: 120,
-
-    },
-    letrasLivros: {
-        color: 'black',
-        fontSize: 15,
-        fontWeight: 'bold',
-
-    },
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-    },
+  container: {
+    paddingTop: 23,
+  },
+  input: {
+    margin: 15,
+    height: 40,
+    borderColor: 'black',
+    color: 'black',
+    borderWidth: 1,
+  },
+  submitButton: {
+    backgroundColor: '#7a42f4',
+    padding: 10,
+    margin: 15,
+    height: 40,
+  },
+  submitButtonText: {
+    color: 'white',
+  },
+  letras: {
+    color: 'black',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  swicth: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
 });
+
+export default ReviewList;

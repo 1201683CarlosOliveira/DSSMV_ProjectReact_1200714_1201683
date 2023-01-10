@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 45,
+    marginBottom: 25,
   },
 
   buttonText: {

@@ -18,15 +18,16 @@ class BookAdd extends React.Component {
     };
 
     handleClick = async () => {
-        api
+        config
             .get('book/' + this.state.isbn)
             .catch(error => Alert.alert(error.message));
-        api
-            .post('library/89da2535-5474-4368-9fb4-7849df1d38b9/book/' + this.state.isbn,
+        config
+            .post('library/e808292b-10f5-4d2d-83f0-6738f06196e5/book/' + this.state.isbn,
             {stock: this.state.stock},)
       
         .catch(error => Alert.alert(error.message));
-        this.props.navigation.goBack();
+        //this.props.navigation.push('HomeScreenC');
+        const { navigation } = this.props;
         Alert.alert('Created With Success!');
     };
 
@@ -64,8 +65,6 @@ class BookAdd extends React.Component {
                     onPress={this.handleClick}>
                     <Text style={styles.buttonText}>Create a Book</Text>
                 </TouchableOpacity>
-      
-                
             </SafeAreaView>
         );
     }
@@ -111,3 +110,4 @@ const styles = StyleSheet.create({
 });
 
 export default BookAdd;
+
