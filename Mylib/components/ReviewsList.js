@@ -27,14 +27,6 @@ class ReviewList extends React.Component {
       recommended: response.data.recommended,
       review: response.data.review,
     });
-    /*
-    Alert.alert(
-      'Recomendado: ' +
-        this.state.recommended +
-        '\r\n' +
-        'Review: ' +
-        this.state.review,
-    );*/
   };
 
   handleIsbn = text => {
@@ -53,35 +45,37 @@ class ReviewList extends React.Component {
           placeholder="Isbn"
           placeholderTextColor="black"
           onChangeText={this.handleIsbn}
-          keyboardType="numeric"
-        />
+          keyboardType="numeric"/>
+
+        <Text style={styles.letters}>User:</Text>
         <TextInput
           style={styles.input}
           placeholder="UserId"
           placeholderTextColor="black"
-          onChangeText={this.handleUserId}
-        />
+          onChangeText={this.handleUserId}/>
+
         <TouchableOpacity 
             style={styles.submitButton}
             onPress={this.handleClick}>
-            <Text style={styles.submitButtonText}>Send</Text>
+            <Text style={styles.submitButtonText}>List!</Text>
         </TouchableOpacity>
        
-       
         <View style={styles.show}>
-        <Text style={styles.letras}>
-          {this.state.recommended ? 'Recomendado' : 'Não Recomendado'}
-        </Text>
+          <Text style={styles.letters}>
+            {this.state.recommended ? 'Recomendado' : 'Não Recomendado'}</Text>
           <Text style={styles.letters}>Review: {this.state.review}</Text>
         </View>
+
       </SafeAreaView>
     );
   }
 }
 const styles = StyleSheet.create({
+
   container: {
     paddingTop: 23,
   },
+
   input: {
     margin: 15,
     height: 40,
@@ -89,6 +83,7 @@ const styles = StyleSheet.create({
     color: 'black',
     borderWidth: 1,
   },
+
   submitButton: {
     backgroundColor: '#DB4F31', 
     borderRadius: 10,
@@ -97,18 +92,21 @@ const styles = StyleSheet.create({
     height: 45, 
     borderRadius: 5,
   },
+
   submitButtonText: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 20,
   },
+
   letters: {
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  
   show: {
     marginTop: 100,
   },

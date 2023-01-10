@@ -13,24 +13,23 @@ import config from '../service/config';
 class ReviewChange extends Component {
   
     state = {
-    isbn: '',
-    userId: '',
-    review: '',
-    id: '',
-    recommended: false,
-  };
+      isbn: '',
+      userId: '',
+      review: '',
+      id: '',
+      recommended: false,
+    };
   
-  handleClick = async () => {
-    const response = await config
-      .get('book/' + this.state.isbn + '/review/self?userId=' + this.state.userId,)
-      .catch(error => Alert.alert(error.message));
+    handleClick = async () => {
+      const response = await config
+        .get('book/' + this.state.isbn + '/review/self?userId=' + this.state.userId,)
+        .catch(error => Alert.alert(error.message));
         
-      this.setState({id: response.data.id,});
+        this.setState({id: response.data.id,});
         console.log(this.state.id);
    
-    await config
-      .put('book/' +this.state.isbn +'/review/' +this.state.id +'?userId=' +
-      this.state.userId,
+      await config
+        .put('book/' +this.state.isbn +'/review/' + this.state.id +'?userId=' + this.state.userId,
         {
           recommended: this.state.recommended,
           review: this.state.review,
@@ -38,7 +37,7 @@ class ReviewChange extends Component {
       )
       .catch(error => Alert.alert(error.message));
 
-    Alert.alert('Review Changed with success!!');
+      Alert.alert('Review Changed With success!!');
   };
 
   handleIsbn = text => {
@@ -54,52 +53,54 @@ class ReviewChange extends Component {
   render() {
     return (
         <SafeAreaView style={styles.container}>
-        <Text style={styles.letras}>Isbn:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Isbn"
-          placeholderTextColor="black"
-          onChangeText={this.handleIsbn}
-          keyboardType="numeric"
-        />
-        <Text style={styles.letras}>Review:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Review"
-          placeholderTextColor="black"
-          onChangeText={this.handleReview}
-        />
-        <Text style={styles.letras}>User:</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="User"
-          placeholderTextColor="black"
-          onChangeText={this.handleUserId}
-        />
-        <Text style={styles.letras}>
-          {this.state.recommended ? 'Recomendado' : 'Não Recomendado'}
-        </Text>
+          <Text style={styles.letters}>Isbn:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Isbn"
+            placeholderTextColor="#A9A9A9"
+            onChangeText={this.handleIsbn}
+            keyboardType="numeric"/>
 
-        <Switch
-          style={styles.swicth}
-          value={this.state.recommended}
-          onValueChange={recommended => this.setState({recommended})}/>
-        
-        <TouchableOpacity 
+          <Text style={styles.letters}>Review:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Review"
+            placeholderTextColor="#A9A9A9"
+            onChangeText={this.handleReview}/>
+
+          <Text style={styles.letters}>User:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="User"
+            placeholderTextColor="#A9A9A9"
+            onChangeText={this.handleUserId}/>
+
+          <Text style={styles.letters}>
+            {this.state.recommended ? 'Recomendado' : 'Não Recomendado'}
+          </Text>
+
+          <Switch
+            style={styles.swicth}
+            value={this.state.recommended}
+            onValueChange={recommended => this.setState({recommended})}/>
+          
+          <TouchableOpacity 
             style={styles.submitButton}
             onPress={this.handleClick}>
             <Text style={styles.submitButtonText}>Send</Text>
-        </TouchableOpacity>
-      
+          </TouchableOpacity>
+        
       </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+
   container: {
     paddingTop: 23,
   },
+
   input: {
     margin: 15,
     height: 40,
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
     color: 'black',
     borderWidth: 1,
   },
+
   submitButton: {
     backgroundColor: '#DB4F31', 
     borderRadius: 10,
@@ -122,12 +124,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
-  letras: {
+  
+  letters: {
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  
   swicth: {
     alignSelf: 'center',
     justifyContent: 'center',

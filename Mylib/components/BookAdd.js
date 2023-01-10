@@ -27,8 +27,7 @@ class BookAdd extends React.Component {
       
         .catch(error => Alert.alert(error.message));
         
-        Alert.alert('Created With Success!');
-        this.props.navigation.push('HomeScreenC');
+        Alert.alert('Book Created With Success!');
     };
 
     handleIsbn = text => {
@@ -46,24 +45,22 @@ class BookAdd extends React.Component {
                 <TextInput
                     style={styles.inputBox}
                     placeholder="Isbn"
-                    placeholderTextColor="black"
+                    placeholderTextColor="#A9A9A9"
                     onChangeText={this.handleIsbn}
-                    keyboardType="numeric"
-                />
+                    keyboardType="numeric"/>
 
                 <Text style={styles.letters}>Stock:</Text>
                 <TextInput
                     style={styles.inputBox}
                     placeholder="Stock"
-                    placeholderTextColor="black"
+                    placeholderTextColor="#A9A9A9"
                     onChangeText={this.handleStock}
-                    keyboardType="numeric"
-                />
+                    keyboardType="numeric"/>
        
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={this.handleClick}>
-                    <Text style={styles.buttonText}>Create a Book</Text>
+                    <Text style={styles.buttonText}>Create!</Text>
                 </TouchableOpacity>
             </SafeAreaView>
         );

@@ -36,29 +36,28 @@ class BooksList extends Component {
   }
 }
 
-
-  const bookShow = function (item) {
-  const {isbn, stock, available, book} = item.item;
+const bookShow = function (item) {
+const {isbn, stock, available, book} = item.item;
   
-  return (
+return (
     
-    <View style= {styles.container}>
+  <View style= {styles.container}>
       
-      <Image
+    <Image
         style={styles.image}
         source={{
           uri: 'http://193.136.62.24/v1/assets/cover/' + isbn + '-M.jpg',
         }}/>
         
-      <View style={styles.containerInf}>
-          <Text style={styles.letters}>Isbn: {isbn}</Text>
-          <Text style={styles.letters}>Stock: {stock}</Text>
-          <Text style={styles.letters}>Available: {available}</Text>
-          <Text style={styles.letters}>Titulo: {book.title}</Text>
-          <Text style={styles.letters}>Autor: {book.authors[0].name}</Text> 
-      </View>
-
+    <View style={styles.containerInf}>
+        <Text style={styles.letters}>Isbn: {isbn}</Text>
+        <Text style={styles.letters}>Stock: {stock}</Text>
+        <Text style={styles.letters}>Available: {available}</Text>
+        <Text style={styles.letters}>Titulo: {book.title}</Text>
+        <Text style={styles.letters}>Autor: {book.authors[0].name}</Text> 
     </View>
+
+  </View>
   );
 }
 
@@ -69,15 +68,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#C9C8C9',
   },
+
   containerInf: {
     flex: 1,
     flexDirection: 'column',
   },
+
   image: {
     borderRadius: 4,
     width: 80,
     height: 120,
   },
+  
   letters: {
     color: 'black',
     fontSize: 15,

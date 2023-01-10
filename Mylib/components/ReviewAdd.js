@@ -22,12 +22,11 @@ class ReviewAdd extends React.Component {
     config
       .post('book/' + this.state.isbn + '/review?userId=' + this.state.user, {
         recommended: this.state.checkBox,
-        review: this.state.review,
-      })
+        review: this.state.review,})
       .catch(error => Alert.alert(error.message));
-    console.log(this.state);
-    //this.props.navigation.goBack();
-    Alert.alert('Review Created with Success!!');
+      console.log(this.state);
+    
+    Alert.alert('Review Created With Success!!');
   };
 
   handleIsbn = text => {
@@ -39,6 +38,7 @@ class ReviewAdd extends React.Component {
   handleUser = text => {
     this.setState({user: text});
   };
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -46,43 +46,43 @@ class ReviewAdd extends React.Component {
         <TextInput
           style={styles.input}
           placeholder="Isbn"
-          placeholderTextColor="black"
+          placeholderTextColor="#A9A9A9"
           onChangeText={this.handleIsbn}
-          keyboardType="numeric"
-        />
+          keyboardType="numeric"/>
+
         <Text style={styles.letters}>Review:</Text>
         <TextInput
           style={styles.input}
           placeholder="Review"
-          placeholderTextColor="black"
-          onChangeText={this.handleReview}
-        />
+          placeholderTextColor="#A9A9A9"
+          onChangeText={this.handleReview}/>
+
         <Text style={styles.letters}>User:</Text>
         <TextInput
           style={styles.input}
           placeholder="User"
-          placeholderTextColor="black"
-          onChangeText={this.handleUser}
-        />
+          placeholderTextColor="#A9A9A9"
+          onChangeText={this.handleUser}/>
+
         <Text style={styles.letters}>
           {this.state.checkBox ? 'Recommended' : 'Not Recommended'}
         </Text>
         <Switch
           style={styles.switch}
           value={this.state.checkBox}
-          onValueChange={checkBox => this.setState({checkBox})}
-        />
+          onValueChange={checkBox => this.setState({checkBox})}/>
 
         <TouchableOpacity 
             style={styles.submitButton}
             onPress={this.handleClick}>
-            <Text style={styles.submitButtonText}>Send</Text>
+            <Text style={styles.submitButtonText}>Create!</Text>
         </TouchableOpacity>
        
       </SafeAreaView>
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: 23,
@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  
   switch: {
     alignSelf: 'center',
     justifyContent: 'center',
