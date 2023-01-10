@@ -34,13 +34,19 @@ function HomeScreen ({navigation}) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('ListBooks')} >
-        <Text style={styles.buttonText}>List ListBooks</Text>
+        <Text style={styles.buttonText}>List Books</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('AddReview')} >
         <Text style={styles.buttonText}>Create a Review</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('ChangeMyReview')} >
+        <Text style={styles.buttonText}>Change Your Review</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -69,12 +75,12 @@ const styles = StyleSheet.create({
 
   button: {
     backgroundColor: '#DB4F31',
-    padding: 10,
+    padding: 9,
     width: 300,
     borderRadius: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 25,
+    marginBottom: 20,
   },
 
   buttonText: {
