@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import ReviewChange from '../components/ReviewChange.js';
 
-const ChangeMyReview = (navigation) => {
+const ChangeReview = (navigation) => {
   return (
     <View>
       <ReviewChange />
@@ -10,4 +10,4 @@ const ChangeMyReview = (navigation) => {
   );
 }
 
-export default ChangeMyReview;
+export default ChangeReview;

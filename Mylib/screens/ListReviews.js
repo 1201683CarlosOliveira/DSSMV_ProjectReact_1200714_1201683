@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import ReviewsList from '../components/ReviewsList.js';
 
-const Reviews = (navigation) => {
+const ListReviews = (navigation) => {
     return (
         <View>
             <ReviewsList />
@@ -10,4 +10,4 @@ const Reviews = (navigation) => {
     );
 }
 
-export default Reviews;
+export default ListReviews;

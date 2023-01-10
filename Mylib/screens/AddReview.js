@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import ReviewAdd from '../components/ReviewAdd.js';
 
 const AddReview = (navigation) => {

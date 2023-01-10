@@ -45,14 +45,14 @@ function HomeScreen ({navigation}) {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('ChangeMyReview')} >
+        onPress={() => navigation.navigate('ChangeReview')} >
         <Text style={styles.buttonText}>Change Your Review</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Reviews')} >
-        <Text style={styles.buttonText}>List Reviews</Text>
+        onPress={() => navigation.navigate('ListReviews')} >
+        <Text style={styles.buttonText}>List Your Review of a Book</Text>
       </TouchableOpacity>
 
     </SafeAreaView>
