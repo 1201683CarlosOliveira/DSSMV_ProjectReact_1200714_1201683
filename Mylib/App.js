@@ -6,6 +6,7 @@ import AddBook from './screens/AddBook';
 import ListBooks from './screens/ListBooks';
 import AddReview from './screens/AddReview';
 import Reviews from "./screens/Reviews";
+import ChangeMyReview from "./screens/ChangeMyReview";
 
 
 
@@ -24,6 +25,7 @@ function App() {
       <Stack.Screen name="ListBooks" component={ListBooks} options={{title:"List Books"}}/>
       <Stack.Screen name="AddReview" component={AddReview} options={{title:"Create a Review"}} />
       <Stack.Screen name="Reviews" component={Reviews} options={{title:"List Reviews"}} />
+      <Stack.Screen name="ChangeMyReview" component={ChangeMyReview} options={{title:"Change My Review"}} />
     </Stack.Navigator>
    </NavigationContainer>
   );

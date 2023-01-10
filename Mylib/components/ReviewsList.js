@@ -14,13 +14,14 @@ import config from '../service/config';
 class ReviewList extends React.Component {
   state = {
     isbn: '',
+    userId: '',
     recommended: false,
     review: '',
   };
 
   handleClick = async () => {
     const response = await config
-      .get('book/' + this.state.isbn + '/review/self?userId=Mariana',)
+      .get('book/' + this.state.isbn + '/review/self?userId='+ this.state.userId,)
       .catch(error => Alert.alert(error.message));
     this.setState({
       recommended: response.data.recommended,
@@ -39,6 +40,9 @@ class ReviewList extends React.Component {
   handleIsbn = text => {
     this.setState({isbn: text});
   };
+  handleUserId = text => {
+    this.setState({userId: text});
+  };
   
   render() {
     return (
@@ -51,14 +55,23 @@ class ReviewList extends React.Component {
           onChangeText={this.handleIsbn}
           keyboardType="numeric"
         />
+        <TextInput
+          style={styles.input}
+          placeholder="UserId"
+          placeholderTextColor="black"
+          onChangeText={this.handleUserId}
+        />
         <TouchableOpacity 
             style={styles.submitButton}
             onPress={this.handleClick}>
             <Text style={styles.submitButtonText}>Send</Text>
         </TouchableOpacity>
-
+       
+       
         <View style={styles.show}>
-          <Text style={styles.letters} >Recomendado: {this.state.recommended.toString()}</Text>
+        <Text style={styles.letras}>
+          {this.state.recommended ? 'Recomendado' : 'Não Recomendado'}
+        </Text>
           <Text style={styles.letters}>Review: {this.state.review}</Text>
         </View>
       </SafeAreaView>

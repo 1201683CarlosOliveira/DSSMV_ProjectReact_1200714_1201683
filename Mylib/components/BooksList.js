@@ -62,9 +62,6 @@ class BooksList extends Component {
   );
 }
 
-export default BooksList;
-
-
 const styles = StyleSheet.create({
 
   container: {
@@ -88,4 +85,4 @@ const styles = StyleSheet.create({
   },
 });
 
-  
+export default BooksList;
